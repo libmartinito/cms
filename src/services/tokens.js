@@ -5,11 +5,9 @@ const baseUrl = "/api/v3"
 
 const getDate = () => {
   const date = new Date();
-  console.log(date);
   const year = date.getFullYear();
   const month = date.getMonth();
   const day = date.getDate();
-  console.log(month)
   return `${day}-${month + 1}-${year}`;
 }
 
