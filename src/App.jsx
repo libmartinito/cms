@@ -1,21 +1,20 @@
 import { CssBaseline } from "@mui/material"
 import Container from "@mui/material/Container";
 import Navigation from "./components/Navigation";
-import Crypto from "./components/Crypto";
-import Projects from "./components/Projects";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="bg-neutral-50">
+    <Router>
       <CssBaseline />
-      <Container>
+      <Container className="bg-neutral-50">
         <Navigation />
-        <div className="max-w-4xl mx-auto">
-          <Crypto />
-          <Projects />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
       </Container>
-    </div>
+    </Router>
   )
 }
 
