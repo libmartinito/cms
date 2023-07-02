@@ -6,6 +6,7 @@ import FaceIcon from "@mui/icons-material/Face";
 import EditIcon from "@mui/icons-material/Edit";
 import playerInfo from "../../data/player-info";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const EditDialog = () => {
   const [open, setOpen] = useState(false)
@@ -59,7 +60,9 @@ const EditDialog = () => {
             </div>
           </div>
           <div className="w-full text-center">
-            <Button variant="contained" size="small">Edit Player Information</Button>
+            <Button variant="contained" size="small">
+              <Link to="/player-info/basic-info">Edit Player Information</Link>
+            </Button>
           </div>
         </DialogContent>
       </Dialog>
