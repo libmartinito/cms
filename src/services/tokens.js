@@ -27,3 +27,22 @@ const tokenPromiseArr = tokens.map((token) => {
 export const getTokenHistoryArr = async () => {
   return await Promise.all(tokenPromiseArr)
 }
+
+export const getTokenPriceRangeHistory = async () => {
+  const url = `${baseUrl}/coins/bitcoin/market_chart/range`
+  const dateStart = new Date(new Date().getFullYear(), 0, 1)
+  const dateEnd = new Date()
+  const dateStartUnix = dateStart.getTime() / 1000
+  const dateEndUnix = dateEnd.getTime() / 1000
+
+  const { data } = await axios.get(url, {
+    params: {
+      vs_currency: "usd",
+      from: dateStartUnix,
+      to: dateEndUnix,
+      precision: 2,
+    }
+  })
+
+  return data.prices
+}
