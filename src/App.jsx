@@ -10,14 +10,16 @@ function App() {
   return (
     <Router>
       <CssBaseline />
-      <Container className="bg-neutral-50">
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/player-info" element={<PlayerInfo />} />
-          <Route path="/player-info/basic-info" element={<BasicInfo />} />
-        </Routes>
-      </Container>
+      <div className="bg-neutral-50">
+        <Container>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/player-info" element={<PlayerInfo />} />
+            <Route path="/player-info/basic-info" element={<BasicInfo />} />
+          </Routes>
+        </Container>
+      </div>
     </Router>
   )
 }
