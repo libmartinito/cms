@@ -1,6 +1,8 @@
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import projects from "../data/projects"
+import NewProjectDialog from "./projects/NewProjectDialog"
+import NewTaskDialog from "./projects/NewTaskDialog"
 
 const Task = (props) => {
     const { task } = props
@@ -21,7 +23,10 @@ const Project = (props) => {
     const { title, tasks } = project
     return (
         <div>
-            <div className="font-bold text-md">{title}</div>
+            <div className="flex justify-between items-center py-4">
+                <div className="font-bold text-lg">{title}</div>
+                <NewTaskDialog />
+            </div>
             {tasks.map(task =>
                 <Task key={task.name} task={task} />
             )}
@@ -33,7 +38,10 @@ const Projects = () => {
     return (
         <Card className="my-8 py-4 px-6">
             <CardContent>
-                <div className="font-bold text-xl text-center">Projects</div>
+                <div className="flex justify-between items-center pb-4">
+                    <div className="font-bold text-xl">Projects</div>
+                    <NewProjectDialog />
+                </div>
                 <div className="flex flex-col gap-4">
                     {projects.map(project =>
                         <Project key={project.title} project={project} />
