@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import PlayerInfo from "./pages/PlayerInfo";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/player-info" element={<PlayerInfo />} />
         </Routes>
       </Container>
     </Router>
