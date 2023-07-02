@@ -28,8 +28,13 @@ export const getTokenHistoryArr = async () => {
   return await Promise.all(tokenPromiseArr)
 }
 
-export const getTokenPriceRangeHistory = async () => {
-  const url = `${baseUrl}/coins/bitcoin/market_chart/range`
+export const getTokenPriceRangeHistory = async (tokenId) => {
+  let url = ''
+  if (!tokenId) {
+    url = `${baseUrl}/coins/bitcoin/market_chart/range`
+  } else {
+    url = `${baseUrl}/coins/${tokenId}/market_chart/range`
+  }
   const dateStart = new Date(new Date().getFullYear(), 0, 1)
   const dateEnd = new Date()
   const dateStartUnix = dateStart.getTime() / 1000

@@ -4,8 +4,8 @@ import CardContent from "@mui/material/CardContent"
 import { getTokenHistoryArr } from "../../services/tokens"
 
 const TokenItem = (props) => {
-    const { token } = props
-    const { name, symbol, value } = token
+    const { token, handleSelectedTokenChange } = props
+    const { id, name, symbol, value } = token
     const date = new Date()
     const day = date.getDate()
     const month = date.getMonth()
@@ -13,7 +13,11 @@ const TokenItem = (props) => {
     const dateStr = `${month}/${day}/${year}`
 
     return (
-        <Card style={{ height: 'fit-content' }}>
+        <Card
+            style={{ height: 'fit-content' }}
+            className="cursor-pointer"
+            onClick={() => handleSelectedTokenChange(id, name)}
+        >
             <CardContent>
                 <div className="font-bold">{name}</div>
                 <div className="text-sm font-light text-neutral-400">{symbol.toUpperCase()}</div>
@@ -24,8 +28,10 @@ const TokenItem = (props) => {
     )
 }
 
-const TokenItems = () => {
+const TokenItems = (props) => {
     const [tokens, setTokens] = useState([])
+
+    const { handleSelectedTokenChange } = props
 
     useEffect(() => {
         const fetchTokenHistoryArr = async () => {
@@ -48,7 +54,11 @@ const TokenItems = () => {
     return (
         <div className="flex flex-wrap max-w-fit gap-4 items-center justify-center">
             {tokens && tokens.map(token =>
-                <TokenItem key={token.id} token={token} />
+                <TokenItem
+                    key={token.id}
+                    token={token}
+                    handleSelectedTokenChange={handleSelectedTokenChange}
+                />
             )}
         </div>
     )

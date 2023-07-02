@@ -2,7 +2,6 @@ import { CssBaseline } from "@mui/material"
 import Container from "@mui/material/Container";
 import Navigation from "./components/Navigation";
 import Crypto from "./components/Crypto";
-import Dashboard from "./components/Dashboard";
 import Projects from "./components/Projects";
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
         <Navigation />
         <div className="max-w-4xl mx-auto">
           <Crypto />
-          <Dashboard />
           <Projects />
         </div>
       </Container>
